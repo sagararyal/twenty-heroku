@@ -1,0 +1,65 @@
+{
+  "name": "Twenty CRM",
+  "description": "Deploy Twenty CRM to Heroku",
+  "repository": "https://github.com/sagararyal/twenty-heroku",
+  "keywords": ["twenty", "crm", "docker", "heroku"],
+  "website": "https://twenty.com",
+  "stack": "container",
+  "env": {
+	"ACCESS_TOKEN_SECRET": {
+	  "description": "Secret key for access tokens",
+	  "generator": "secret"
+	},
+	"LOGIN_TOKEN_SECRET": {
+	  "description": "Secret key for login tokens",
+	  "generator": "secret"
+	},
+	"REFRESH_TOKEN_SECRET": {
+	  "description": "Secret key for refresh tokens",
+	  "generator": "secret"
+	},
+	"FILE_TOKEN_SECRET": {
+	  "description": "Secret key for file tokens",
+	  "generator": "secret"
+	},
+	"SERVER_URL": {
+	  "description": "URL of the server, update after deployment",
+	  "value": "https://YOUR_APP_NAME.herokuapp.com"
+	},
+	"FRONT_BASE_URL": {
+	  "description": "URL of the frontend, update after deployment",
+	  "value": "https://YOUR_APP_NAME.herokuapp.com"
+	},
+	"NODE_TLS_REJECT_UNAUTHORIZED": {
+	  "description": "Disable TLS certificate verification",
+	  "value": "0"
+	},
+	"PGSSLMODE": {
+	  "description": "Disable SSL verification for PostgreSQL",
+	  "value": "no-verify"
+	},
+	"PG_SSL_ALLOW_SELF_SIGNED": {
+	  "description": "Disable SSL verification for PostgreSQL",
+	  "value": "true"
+	},
+	"PG_DATABASE_URL": {
+	  "description": "After Deployment is complete copy URL from env: DATABASE_URL",
+	  "required": true,
+	  "value": "{{DATABASE_URL}}"
+	}
+  },
+  "addons": [
+	{
+	  "plan": "heroku-postgresql",
+	  "options": {
+		"version": "14"
+	  }
+	}
+  ],
+  "formation": {
+	"web": {
+	  "quantity": 1,
+	  "size": "standard-1X"
+	}
+  }
+}
