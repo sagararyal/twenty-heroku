@@ -2,6 +2,9 @@
 
 Deploy Twenty CRM to Heroku with one click:
 
+Note: This will likely never work with heroku-postgres, as multiple postgres extensions used by twenty are not supported. Supabase also doesn't work. The app builds fine. You need to use heroku-cli and run `heroku run yarn database:init:prod  -a <app-name> -s performance-L`  to initialize the db to not run into memory issues.
+
+
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https://github.com/sagararyal/twenty-heroku&template=https://github.com/sagararyal/twenty-heroku)
 
 ## Prerequisites
