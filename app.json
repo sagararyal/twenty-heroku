@@ -43,19 +43,11 @@
 	  "value": "true"
 	},
 	"PG_DATABASE_URL": {
-	  "description": "After Deployment is complete copy URL from env: DATABASE_URL",
+	  "description": "A Link to Postgres DB env: DATABASE_URL",
 	  "required": true,
 	  "value": "{{DATABASE_URL}}"
 	}
   },
-  "addons": [
-	{
-	  "plan": "heroku-postgresql",
-	  "options": {
-		"version": "14"
-	  }
-	}
-  ],
   "formation": {
 	"web": {
 	  "quantity": 1,
